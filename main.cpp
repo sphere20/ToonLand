@@ -65,7 +65,7 @@ void line(float x1,float y1,float x2,float y2)
 void scene1()
 {
     //sky
-    glColor3ub(69, 139, 122);
+    glColor3ub(0, 191, 255);
     polygon(-100, 0, 100, 0, 100, 100, -100, 100);
 
 
@@ -92,7 +92,7 @@ void scene1()
 
 
     //road
-    glColor3ub(70, 122, 49);
+    glColor3ub(150,150,150);
     polygon(-100, -100, 100, -100, 100, -50, -100, -50);
 
     //road divider
@@ -106,7 +106,7 @@ void scene1()
 
     //forest
     //forest 1st layer (left to right)
-    glColor3ub(70, 122, 49);
+    glColor3ub(0, 100, 0);
     circle(-85, 16.5, 8); //1
     circle(-65, 16.5, 8); //2
     circle(-45, 16.5, 8); //3
@@ -118,7 +118,7 @@ void scene1()
     circle(80, 16.5, 8); //9
 
     //forest 2nd layer (left to right)
-    glColor3ub(70, 129, 67);
+    glColor3ub(0, 139, 0);
     circle(-95, 10, 8); //1
     circle(-80, 10, 8); //2
     circle(-65, 10, 8); //3
@@ -135,7 +135,7 @@ void scene1()
     circle(100, 10, 8); //14
 
     //forest 3rd layer (left to right)
-    glColor3ub(90, 129, 47);
+    glColor3ub(50, 205, 50);
     circle(-100, 5, 6.5); //1
     circle(-90, 5, 6.5); //2
     circle(-80, 5, 6.5); //3
@@ -159,8 +159,14 @@ void scene1()
     circle(100, 5, 6.5); //21
 
     //river
-    glColor3ub(70, 120, 122);
-    polygon(-100, -50, 100, -50, 100, 0, -100, 0);
+    glColor3ub(0, 191, 255);
+    glBegin(GL_POLYGON);
+    glVertex2f(-100, -50);
+    glVertex2f(100, -50);
+    glColor3ub(16, 78, 139);
+    glVertex2f(100, 0);
+    glVertex2f(-100, 0);
+    glEnd();
 
     //sky line
     glColor3ub(0, 0, 0);
@@ -170,20 +176,68 @@ void scene1()
     line(-100, -50, 100, -50);
 
 
+
+    //ponyo boat
+    //body
+    glColor3ub(255, 255, 255);
+    polygon(-30, -25, 10, -25, 10, -27.5, -30, -27.5);
+    polygon(-30, -27.5, 10, -27.5, 10, -30, -29, -30);
+    glColor3ub(205, 38, 38);
+    polygon(-29, -30, 10, -30,10, -32.5, -28, -32.5);
+    //pipe
+    glColor3ub(205, 38, 38);
+    polygon(10, -30, 14, -30, 14, -27.5, 10, -27.5);
+    //upper pipe
+    glColor3ub(135, 135, 135);
+    polygon(0, -17.5, 2, -17.5, 2, -20, 0, -20);
+    polygon(0, -20, 0, -22, 8, -22, 8, -20);
+    polygon(8, -20, 8, -25, 10, -25, 10, -22.5);
+    //upper part
+    glColor3ub(255, 193, 37);
+    triangle(-30, -25, -24, -25, -24, -22.5);
+    //outline
+    glColor3ub(16, 78, 139);
+    polygon(-24, -25, -24, -22.5, -21, -22.5, -22, -25);
+    polygon(-24, -22.5, -21, -22.5, -19, -17.5, -20, -15);
+    polygon(-20, -15, -4, -15, -4, -17.5, -19, -17.5);
+    polygon(-8, -17.5, -6, -17.5, -4, -25, -6, -25);
+    //inner part
+    glColor3ub(102, 102, 102);
+    polygon(-20, -25, -18, -20, -16, -20, -18, -25);
+    line(-18, -20, -10, -20);
+    //fire
+    glColor3ub(238, 64, 0);
+    semiCircle(-13, -25, 3);
+    glColor3ub(255, 153, 0);
+    circle(-14, -22.5, 1.75);
+    glColor3ub(255, 204, 0);
+    circle(-12, -22.5, 1.75);
+
+
     //up house
-    //left house-door
+    //left house
     //window wall
-    glColor3ub(20, 40, 80);
+    glColor3ub(255, 140, 0);
     polygon(26, -40, 40, -40, 40, 0, 26, 0);
     //window wall side
-    glColor3ub(70, 40, 80);
+    glColor3ub(255, 215, 0);
     polygon(24, -40, 26, -40, 26, 0, 24, 0);
     //door wall
-    glColor3ub(70, 40, 210);
+    glColor3ub(255, 140, 0);
     polygon(40, -40, 62, -40, 62, 0, 40, 0);
+    //left side upper wall
+    glColor3ub(191, 239, 255);
+    polygon(26, -7.5, 62, -7.5, 62, 0, 26, 0);
+    //upper wall lines
+    glColor3ub(0, 0, 0);
+    line(26, -2.5, 62, -2.5);
+    line(26, -5, 62, -5);
 
+    //upper railing back side
+    glColor3ub(205, 102, 0);
+    polygon(26, -7.5, 62, -7.5, 62, -12.5, 26, -12.5);
     //upper railing (left to right)
-    glColor3ub(170, 40, 210);
+    glColor3ub(255, 215, 0);
     polygon(28, -12.5, 30, -12.5, 30, -7.5, 28, -7.5);
     polygon(32, -12.5, 34, -12.5, 34, -7.5, 32, -7.5);
     polygon(36, -12.5, 38, -12.5, 38, -7.5, 36, -7.5);
@@ -192,28 +246,28 @@ void scene1()
     polygon(50, -12.5, 52, -12.5, 52, -7.5, 50, -7.5);
     polygon(54, -12.5, 56, -12.5, 56, -7.5, 54, -7.5);
     //upper railing up-line
-    glColor3ub(170, 140, 210);
+    glColor3ub(255, 245, 10);
     line(26, -7.5, 62, -7.5);
     //upper railing lower-line
     line(26, -12.5, 62, -12.5);
     //lower railing
-    glColor3ub(170, 40, 210);
+    glColor3ub(255, 215, 0);
     polygon(28, -40, 30, -40, 30, -35, 28, -35);
     polygon(32, -40, 34, -40, 34, -35, 32, -35);
     polygon(36, -40, 38, -40, 38, -35, 36, -35);
     //lower railing line
-    glColor3ub(170, 140, 210);
+    glColor3ub(255, 245, 10);
     line(26, -35, 40, -35);
 
     //window
     //outer window
-    glColor3ub(170, 40, 110);
+    glColor3ub(255, 215, 0);
     polygon(28, -32.5, 38, -32.5, 38, -15, 28, -15);
     //inner window
-    glColor3ub(170, 210, 110);
+    glColor3ub(255, 246, 143);
     polygon(30, -30, 36, -30, 36, -17.5, 30, -17.5);
     //inner window bar
-    glColor3ub(70, 210, 190);
+    glColor3ub(205, 140, 149);
     polygon(30, -25, 36, -25, 36, -22.5, 30, -22.5);
     //window bar
     glColor3ub(70, 170, 190);
@@ -234,17 +288,17 @@ void scene1()
     glColor3ub(210, 190, 90);
     polygon(24, -50, 60, -50, 60, -42.5, 24, -42.5);
     //inner stairs
-    glColor3ub(210, 90, 190);
+    glColor3ub(255, 245, 10);
     polygon(26, -47.5, 60, -47.5, 60, -45, 26, -45);
     //middle stairs bar
-    glColor3ub(110, 90, 230);
-    polygon(38, -50, 40, -50, 40, -40, 38, -40);
+    glColor3ub(255, 255, 0);
+    polygon(38, -50, 40, -50, 40, 0, 38, 0);
 
 
 
     //right house
     //wall
-    glColor3ub(70, 70, 90);
+    glColor3ub(188, 238, 0);
     polygon(60, -50, 90, -50, 90, -12.5, 60, -12.5);
     //wall lines
     glColor3ub(50, 50, 50);
@@ -286,7 +340,7 @@ void scene1()
     polygon(78, -37.5, 79, -37.5, 79, -35, 78, -35);
 
     //left roof
-    glColor3ub(50, 50, 50);
+    glColor3ub(139, 69, 19);
     polygon(30, 0, 68, 0, 68, 25, 30, 25);
     //left roof triangle
     triangle(20, 0, 30, 0, 30, 25);
@@ -317,19 +371,19 @@ void scene1()
     line(60, -42.5, 90, -42.5);
 
     //window bar
-    glColor3ub(150, 150, 150);
+    glColor3ub(238, 180, 34);
     polygon(60, -12.5, 90, -12.5, 90, -7.5, 60, -7.5);
     triangle(60, -12.5, 60, -7.5, 59, -7.5);//left
     triangle(90, -12.5, 90, -7.5, 91, -7.5);//right
 
     //2nd floor
     //lower part
-    glColor3ub(250, 250, 250);
+    glColor3ub(255, 245, 10);
     polygon(62, -7.5, 88, -7.5, 88, -2.5, 62, -2.5);
     triangle(58, -7.5, 62, -7.5, 62, -2.5);//left
     triangle(88, -7.5, 88, -2.5, 92, -7.5);//left
     //wall
-    glColor3ub(250, 250, 250);
+    glColor3ub(255, 245, 10);
     polygon(62, -2.5, 88, -2.5, 88, 12.5, 62, 12.5);
     triangle(62, 12.5, 88, 12.5, 75, 37.5);
     //window
@@ -409,22 +463,22 @@ void scene1()
 
     //vector house
     //boundary
-    glColor3ub(50, 50, 150);
+    glColor3ub(240, 255, 240);
     polygon(-72, 0, -8, 0, -8, 5, -72, 5);
     //triangle
-    glColor3ub(250, 50, 150);
+    glColor3ub(24, 116, 205);
     triangle(-68, 5, -12, 5, -40, 50);
     //house circle
-    glColor3ub(150, 150, 250);
+    glColor3ub(255, 255, 255);
     semiCircle(-45, 22.5, 13);
     polygon(-58, 22.5, -58, 12.5, -32, 12.5, -32, 22.5);
     //house wall
-    glColor3ub(150, 150, 250);
+    glColor3ub(205, 201, 201);
     polygon(-54, 5, -36, 5, -36, 12.5, -54, 12.5);
     //gate
-    glColor3ub(250, 150, 250);
+    glColor3ub(240, 255, 240);
     semiCircle(-45, 5, 5);
-    glColor3ub(250, 150, 50);
+    glColor3ub(255, 127, 36);
     polygon(-52, 0, -50, 0, -50, 10, -52, 10);
      polygon(-38, 0, -40, 0, -40, 10, -38, 10);
      //lower v
@@ -438,57 +492,181 @@ void scene1()
 
 
 
-     //simpsson car
+     //simpsons car
      //body
-     glColor3ub(250, 150, 250);
+     glColor3ub(255, 110, 180);
      polygon(32, -87.5, 96, -87.5, 96, -75, 32, -75);
      //side part
-     glColor3ub(150, 150, 250);
+     glColor3ub(191, 239, 255);
      polygon(30, -87.5, 32, -87.5, 32, -75, 30, -75);
      polygon(96, -87.5, 98, -87.5, 98, -75, 96, -75);
      //upper body
-     glColor3ub(150, 150, 250);
+     glColor3ub(255, 110, 180);
      polygon(44, -75, 86, -75, 80, -62.5, 54, -62.5);
      //left window
-     glColor3ub(50, 150, 50);
+     glColor3ub(224, 255, 255);
      polygon(46, -75, 64, -75, 64, -65, 54, -65);
      //right window
      polygon(68, -75, 84, -75, 78, -65, 68, -65);
      //left door
-     glColor3ub(250, 10, 50);
+     glColor3ub(238, 106, 167);
      polygon(46, -85, 84, -85, 84, -75, 46, -75);
-     glColor3ub(250, 150, 250);
+     glColor3ub(255, 110, 180);
      semiCircle(43, -87.5, 8);//left
-     semiCircle(87, -87.5, 8);//left
+     semiCircle(87, -87.5, 8);//right
      //door divider
      glColor3ub(50, 10, 50);
      line(66, -62.5, 66, -85);
      //door handle
-     glColor3ub(50, 10, 50);
+     glColor3ub(130, 130, 130);
      polygon(60, -78.75, 64, -78.75, 64, -76.25, 60, -76.25);
      polygon(78, -78.75, 82, -78.75, 82, -76.25, 78, -76.25);
      //headlight
-     glColor3ub(250, 210, 250);
+     glColor3ub(173, 216, 230);
      polygon(28, -87.5, 34, -87.5, 34, -82.5, 28, -82.5);
      //left tire
      //shade
-     glColor3ub(250, 20, 250);
+     glColor3ub(64, 64, 64);
      semiCircle(43, -87.5, 7);
-     glColor3ub(150, 20, 250);
+     glColor3ub(99, 99, 99);
      circle(43, -87.5, 5);
-     glColor3ub(250, 20, 250);
+     glColor3ub(191, 239, 255);
      circle(43, -87.5, 2.5);
      //right tire
      //shade
-     glColor3ub(250, 20, 250);
+     glColor3ub(64, 64, 64);
      semiCircle(87, -87.5, 7);
-     glColor3ub(150, 20, 250);
+     glColor3ub(99, 99, 99);
      circle(87, -87.5, 5);
-     glColor3ub(250, 20, 250);
+     glColor3ub(191, 239, 255);
      circle(87, -87.5, 2.5);
      //door line
      glColor3ub(250, 220, 250);
      line(34, -77.5, 42, -77.5);
+
+
+
+
+     //angry bird
+     //tail
+     glColor3ub(0, 0, 0);
+     triangle(-6, 55, 4.5, 62.5, 2, 55);
+     triangle(-3, 57.5, 0, 58, -4, 62.5);
+     //body
+     glColor3ub(255, 225, 0);
+     polygon(2, 52.5, 34, 52.5, 34, 55, 2, 55);
+     triangle(2, 55, 34, 55, 20, 77.5);
+     //stomach
+     glColor3ub(255, 225, 255);
+     semiCircle(23, 52.5, 4);
+     //eye
+     glColor3ub(0, 0, 0);
+     circle(15, 58.75, 2.5);//left
+     circle(29, 58.75, 2.5);//right
+     //eye ball
+     glColor3ub(250, 250, 250);
+     circle(15, 58.75, 1);//left
+     circle(29, 58.75, 1);//right
+     //brows
+     glColor3ub(238, 44, 44);
+     polygon(12, 62.5, 20, 57.5, 20, 60, 14, 64);//left
+     polygon(26, 57.5, 32, 65, 30, 66.25, 24, 60);//right
+     //mouth
+     glColor3ub(255, 127, 36);
+     triangle(21, 55, 23, 53.75, 25, 55);
+     //lips
+     glColor3ub(255, 127, 36);
+     triangle(20, 53.75, 24.5, 57.5, 22, 57.5);//left
+     triangle(21, 55, 30, 55, 24, 57.5);//right
+     //hair
+     glColor3ub(0, 0, 0);
+     polygon(20, 77.5, 21, 87.5, 23, 77.5, 22, 75);
+     triangle(18, 75, 14, 77.5, 20, 77.5);
+     polygon(17, 77.5, 16, 82.5, 21, 80, 20, 77.5);
+     triangle(22, 80, 24, 82.5, 22, 75);
+
+
+
+     //imposter
+     //body
+     glColor3ub(0, 135, 0);
+     polygon(-60, -45, -46, -45, -46, -25, -60, -25);
+     semiCircle(-53, -25, 7);
+     //leg
+     polygon(-60, -50, -56, -50, -56, -45, -60, -45);//left
+     polygon(-50, -50, -46, -50, -46, -45, -50, -45);//right
+     //bag
+     glColor3ub(0, 100, 0);
+     polygon(-64, -42.5, -60, -42.5, -60, -27.5, -64, -27.5);
+     //glass
+     glColor3ub(220, 220, 220);
+     polygon(-51, -35, -46, -35, -46, -27.5, -51, -27.5);
+     circle(-50, -31.25, 3.75);
+     //hand
+     glColor3ub(0, 100, 0);
+     circle(-43, -40, 2);
+
+
+     //minion
+     //head
+     glColor3ub(255, 255, 0);
+     semiCircle(-75, -30, 5);
+     polygon(-80, -30, -80, -45, -70, -45, -70, -30);
+     //hand
+     triangle(-80, -37.5, -82, -41.25, -80, -45);
+     triangle(-70, -37.5, -68, -41.25, -70, -45);
+     //eye frame
+     glColor3ub(0, 0, 0);
+     polygon(-80, -31, -78, -31, -78, -33.5, -80, -33.5);
+     polygon(-72, -31, -70, -31, -70, -33.5, -72, -33.5);
+      glColor3ub(133, 133, 133);
+     circle(-75, -32.5, 3.5);
+     glColor3ub(255, 255, 255);
+     circle(-75, -32.5, 3);
+     //eye
+     glColor3ub(0, 0, 0);
+     circle(-74, -32.5, 1.5);
+     glColor3ub(255, 255, 0);
+     semiCircle(-75, -32.5, 3);
+     //body
+     glColor3ub(54, 100, 139);
+     polygon(-80, -35, -80, -37.5, -78, -40, -78, -37.5);
+     polygon(-70, -35, -70, -37.5, -72, -40, -72, -37.5);
+     polygon(-78, -37.5, -78, -42.5, -72, -42.5, -72, -37.5);
+     polygon(-80, -42.5, -80, -45, -70, -45, -70, -42.5);
+     glColor3ub(255, 204, 0);
+     line(-80, -37.5, -80, -42.5);
+     line(-70, -37.5, -70, -42.5);
+     //leg
+     glColor3ub(54, 100, 139);
+     polygon(-78, -45, -78, -47.5, -76, -47.5, -76, -45);
+     polygon(-74, -45, -74, -47.5, -72, -47.5, -72, -45);
+     //shoe
+     glColor3ub(10, 280, 0);
+     polygon(-78, -47.5, -78, -50, -75, -50, -75, -47.5);
+     polygon(-74, -47.5, -74, -50, -71, -50, -71, -47.5);
+
+
+
+
+
+     //pokemon ball
+     glColor3ub(255, 255, 255);
+     circle(13, -44.25, 5.5);//outer part
+     glColor3ub(255, 0, 0);
+     semiCircle(13, -44.25, 5.5);//outer part
+     glColor3ub(0, 0, 0);
+     polygon(7.5, -45.5, 18.5, -45.5, 18.5, -43.5, 7.5, -43.5);//bar
+glColor3ub(0, 0, 0);
+     circle(13, -44.25, 3);//outer part boundary
+     glColor3ub(255, 255, 255);
+     circle(13, -44.25, 2.5);//outer part
+     glColor3ub(0, 0, 0);
+     circle(13, -44.25, 1);//outer part
+
+
+
+
 
 }
 
